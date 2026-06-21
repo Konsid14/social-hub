@@ -870,6 +870,89 @@
 
         // Initialize
         loadData();
+
+        // Add demo data if this is first time
+        if (users.length === 0) {
+            // Create demo users
+            users = [
+                {
+                    id: 1,
+                    name: 'Alice Johnson',
+                    username: 'alice_j',
+                    email: 'alice@example.com',
+                    password: 'password',
+                    bio: 'Photography enthusiast 📸',
+                    avatar: 'https://ui-avatars.com/api/?name=Alice+Johnson&background=random',
+                    followers: [],
+                    following: [],
+                    createdAt: new Date().toLocaleDateString()
+                },
+                {
+                    id: 2,
+                    name: 'Bob Smith',
+                    username: 'bob_smith',
+                    email: 'bob@example.com',
+                    password: 'password',
+                    bio: 'Travel blogger ✈️',
+                    avatar: 'https://ui-avatars.com/api/?name=Bob+Smith&background=random',
+                    followers: [],
+                    following: [],
+                    createdAt: new Date().toLocaleDateString()
+                },
+                {
+                    id: 3,
+                    name: 'Carol White',
+                    username: 'carol_white',
+                    email: 'carol@example.com',
+                    password: 'password',
+                    bio: 'Food lover 🍕',
+                    avatar: 'https://ui-avatars.com/api/?name=Carol+White&background=random',
+                    followers: [],
+                    following: [],
+                    createdAt: new Date().toLocaleDateString()
+                }
+            ];
+
+            // Create demo posts
+            posts = [
+                {
+                    id: Date.now() - 3000,
+                    userId: 1,
+                    username: 'alice_j',
+                    avatar: users[0].avatar,
+                    text: 'Just finished an amazing photo shoot at the beach! The golden hour light was perfect today.',
+                    image: null,
+                    likes: [2, 3],
+                    comments: [],
+                    createdAt: new Date(Date.now() - 3600000).toLocaleString()
+                },
+                {
+                    id: Date.now() - 2000,
+                    userId: 2,
+                    username: 'bob_smith',
+                    avatar: users[1].avatar,
+                    text: 'Just landed in Tokyo! 🗾 Can\'t wait to explore this amazing city.',
+                    image: null,
+                    likes: [1],
+                    comments: [],
+                    createdAt: new Date(Date.now() - 1800000).toLocaleString()
+                },
+                {
+                    id: Date.now() - 1000,
+                    userId: 3,
+                    username: 'carol_white',
+                    avatar: users[2].avatar,
+                    text: 'Made homemade pizza for dinner and it turned out amazing! 🍕',
+                    image: null,
+                    likes: [1, 2],
+                    comments: [],
+                    createdAt: new Date(Date.now() - 600000).toLocaleString()
+                }
+            ];
+
+            saveData();
+        }
+
         if (currentUser) {
             showView('feed');
             updateNavbar();
